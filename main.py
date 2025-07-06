@@ -70,8 +70,8 @@ selected_page = st.sidebar.radio("Go to", PAGES)
 
 # --- HOME PAGE ---
 if selected_page == "🏠 Home":
-    st.set_page_config(page_title="LingoLearn Home", layout="centered")
-    st.markdown("<h1 style='color:#58cc02;'>🏠 LingoLearn Dashboard</h1>", unsafe_allow_html=True)
+    st.set_page_config(page_title="Duolingo Home", layout="centered")
+    st.markdown("<h1 style='color:#58cc02;'>🏠 Duolingo Dashboard</h1>", unsafe_allow_html=True)
     st.markdown("<p style='color:gray;'>Welcome back! Let's keep the streak alive 🔥</p>", unsafe_allow_html=True)
 
     # Streak & XP
@@ -145,14 +145,14 @@ if selected_page == "🏠 Home":
             user_input = st.text_input("Your answer:", key=f"hiragana_input_{st.session_state.hiragana_q}")
             submit_clicked = st.button("Submit")
 
-        if submit_clicked:
-            if user_input.strip().lower() == current_q["answer"]:
-                st.success("✅ Correct!")
-                st.session_state.hiragana_score += 1
-                st.session_state.hiragana_q += 1
-                st.rerun()
-            elif user_input.strip() != "":
-                st.error(f"❌ Incorrect. The correct answer is: {current_q['answer']}")
+            if submit_clicked:
+                if user_input.strip().lower() == current_q["answer"]:
+                    st.success("✅ Correct!")
+                    st.session_state.hiragana_score += 1
+                    st.session_state.hiragana_q += 1
+                    st.rerun()
+                elif user_input.strip() != "":
+                    st.error(f"❌ Incorrect. The correct answer is: {current_q['answer']}")
         
     st.divider()
 
